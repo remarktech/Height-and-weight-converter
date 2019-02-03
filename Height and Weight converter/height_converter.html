@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+    body{
+        margin-top: 70px;
+        background: #333;
+        color: #fff;
+        }
+    #he{
+        color: lightcoral;
+    }
+    </style>
+    <title>Height Converter</title>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1 class="display-4 text-center mb-4" id="he">Height Converter</h1>
+            <form>
+                <div class="form-group">
+                    <input 
+                    id="footInput"
+                    type="number" 
+                    class="form-control form-control-lg" 
+                    placeholder="Enter height in foot...">
+                </div>
+            </form>
+            <div id="output">
+                <div class="card bg-info mb-3"style="height: 4rem;">
+                    <div class="card-block">
+                        <h4>Inches:</h4>
+                        <div id="inchesOutput"></div>
+                    </div>
+                </div>
+
+                <div class="card bg-success mb-3"style="height: 4rem;">
+                    <div class="card-block">
+                        <h4>Centimeters:</h4>
+                        <div id="cmOutput"></div>
+                    </div>
+                </div>
+
+                <div class="card bg-danger mb-3"style="height: 4rem;">
+                    <div class="card-block">
+                        <h4>Meters:</h4>
+                        <div id="mOutput"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+  </div>  
+  <script>
+    document.getElementById('output').style.visibility='hidden'
+    document.getElementById('footInput'),addEventListener('input', function(e){
+    document.getElementById('output').style.visibility='visible'
+    let foot = e.target.value;  
+    document.getElementById('inchesOutput').innerHTML = foot*12;
+    document.getElementById('cmOutput').innerHTML = foot*30.48;
+    document.getElementById('mOutput').innerHTML = parseFloat(foot/3.281).toFixed(4);
+  })
+  </script>
+</body>
+</html>
